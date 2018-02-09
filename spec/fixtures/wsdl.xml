@@ -1,0 +1,812 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.creditinfo.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ws.creditinfo.com/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.creditinfo.com/">
+      <s:element name="GetAvailableReports">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetAvailableReportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableReportsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CigWsHeader" type="tns:CigWsHeader"/>
+      <s:complexType name="CigWsHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Culture" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SecurityToken" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string"/>
+        </s:sequence>
+        <s:anyAttribute/>
+      </s:complexType>
+      <s:element name="GetAvailableReportsEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlParams">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableReportsExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableReportsExResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableReportsForId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlParams">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableReportsForIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableReportsForIdResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCigEntity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="creditinfoId" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="parentId" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCigEntityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCigEntityResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFrontOfficeProducts">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetFrontOfficeProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFrontOfficeProductsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFrontOfficeSearchOptions">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetFrontOfficeSearchOptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFrontOfficeSearchOptionsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="parentId" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLookupValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLookupValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLookupValuesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="creditinfoId" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="productId" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="reportId" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="doc">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReports">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDoc">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="outputFormat" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportsResult" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceStrings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="types" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="culture" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceStringsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResourceStringsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVersion">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVersionResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFrontOffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parameters">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFrontOfficeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchFrontOfficeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAvailableReportsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableReports"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableReportsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableReportsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableReportsCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableReportsExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableReportsEx"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableReportsExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableReportsExResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableReportsExCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableReportsForIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableReportsForId"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableReportsForIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableReportsForIdResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableReportsForIdCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetCigEntitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCigEntity"/>
+  </wsdl:message>
+  <wsdl:message name="GetCigEntitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCigEntityResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetCigEntityCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetFrontOfficeProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFrontOfficeProducts"/>
+  </wsdl:message>
+  <wsdl:message name="GetFrontOfficeProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFrontOfficeProductsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetFrontOfficeProductsCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetFrontOfficeSearchOptionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFrontOfficeSearchOptions"/>
+  </wsdl:message>
+  <wsdl:message name="GetFrontOfficeSearchOptionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFrontOfficeSearchOptionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetFrontOfficeSearchOptionsCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetLocationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocations"/>
+  </wsdl:message>
+  <wsdl:message name="GetLocationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetLocationsCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetLookupValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLookupValues"/>
+  </wsdl:message>
+  <wsdl:message name="GetLookupValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLookupValuesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetLookupValuesCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProduct"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetReportSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReport"/>
+  </wsdl:message>
+  <wsdl:message name="GetReportSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetReportCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetReportsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReports"/>
+  </wsdl:message>
+  <wsdl:message name="GetReportsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetReportsCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetResourceStringsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResourceStrings"/>
+  </wsdl:message>
+  <wsdl:message name="GetResourceStringsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResourceStringsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetResourceStringsCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:message name="GetVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVersion"/>
+  </wsdl:message>
+  <wsdl:message name="GetVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SearchFrontOfficeSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchFrontOffice"/>
+  </wsdl:message>
+  <wsdl:message name="SearchFrontOfficeSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchFrontOfficeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SearchFrontOfficeCigWsHeader">
+    <wsdl:part name="CigWsHeader" element="tns:CigWsHeader"/>
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="GetAvailableReports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Возвращает список доступных отчетов для текущего пользователя</wsdl:documentation>
+      <wsdl:input message="tns:GetAvailableReportsSoapIn"/>
+      <wsdl:output message="tns:GetAvailableReportsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableReportsEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Возвращает список доступных отчетов 
+для по предоставленному списку параметров</wsdl:documentation>
+      <wsdl:input message="tns:GetAvailableReportsExSoapIn"/>
+      <wsdl:output message="tns:GetAvailableReportsExSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableReportsForId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Возвращает список доступных отчетов для указанного идентификатора субъекта</wsdl:documentation>
+      <wsdl:input message="tns:GetAvailableReportsForIdSoapIn"/>
+      <wsdl:output message="tns:GetAvailableReportsForIdSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCigEntity">
+      <wsdl:input message="tns:GetCigEntitySoapIn"/>
+      <wsdl:output message="tns:GetCigEntitySoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetFrontOfficeProducts">
+      <wsdl:input message="tns:GetFrontOfficeProductsSoapIn"/>
+      <wsdl:output message="tns:GetFrontOfficeProductsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetFrontOfficeSearchOptions">
+      <wsdl:input message="tns:GetFrontOfficeSearchOptionsSoapIn"/>
+      <wsdl:output message="tns:GetFrontOfficeSearchOptionsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocations">
+      <wsdl:input message="tns:GetLocationsSoapIn"/>
+      <wsdl:output message="tns:GetLocationsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupValues">
+      <wsdl:input message="tns:GetLookupValuesSoapIn"/>
+      <wsdl:output message="tns:GetLookupValuesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input message="tns:GetProductSoapIn"/>
+      <wsdl:output message="tns:GetProductSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetReport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Возвращает отчет в формате XML по запрошенному идентификатору</wsdl:documentation>
+      <wsdl:input message="tns:GetReportSoapIn"/>
+      <wsdl:output message="tns:GetReportSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetReports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Возвращает отчет(ы) по запрошенным идентификаторам в указаном формате</wsdl:documentation>
+      <wsdl:input message="tns:GetReportsSoapIn"/>
+      <wsdl:output message="tns:GetReportsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceStrings">
+      <wsdl:input message="tns:GetResourceStringsSoapIn"/>
+      <wsdl:output message="tns:GetResourceStringsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Возвращает версию программного обеспечения</wsdl:documentation>
+      <wsdl:input message="tns:GetVersionSoapIn"/>
+      <wsdl:output message="tns:GetVersionSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFrontOffice">
+      <wsdl:input message="tns:SearchFrontOfficeSoapIn"/>
+      <wsdl:output message="tns:SearchFrontOfficeSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetAvailableReports">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetAvailableReports" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetAvailableReportsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetAvailableReportsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableReportsEx">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetAvailableReportsEx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetAvailableReportsExCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetAvailableReportsExCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableReportsForId">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetAvailableReportsForId" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetAvailableReportsForIdCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetAvailableReportsForIdCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCigEntity">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetCigEntity" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetCigEntityCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetCigEntityCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFrontOfficeProducts">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetFrontOfficeProducts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetFrontOfficeProductsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetFrontOfficeProductsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFrontOfficeSearchOptions">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetFrontOfficeSearchOptions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetFrontOfficeSearchOptionsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetFrontOfficeSearchOptionsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocations">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetLocations" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetLocationsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetLocationsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupValues">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetLookupValues" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetLookupValuesCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetLookupValuesCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetProduct" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetProductCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetProductCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReport">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetReport" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetReportCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetReportCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReports">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetReports" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetReportsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetReportsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceStrings">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetResourceStrings" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetResourceStringsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetResourceStringsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap:operation soapAction="http://ws.creditinfo.com/GetVersion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFrontOffice">
+      <soap:operation soapAction="http://ws.creditinfo.com/SearchFrontOffice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:SearchFrontOfficeCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:SearchFrontOfficeCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetAvailableReports">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetAvailableReports" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetAvailableReportsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetAvailableReportsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableReportsEx">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetAvailableReportsEx" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetAvailableReportsExCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetAvailableReportsExCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableReportsForId">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetAvailableReportsForId" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetAvailableReportsForIdCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetAvailableReportsForIdCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCigEntity">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetCigEntity" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetCigEntityCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetCigEntityCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFrontOfficeProducts">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetFrontOfficeProducts" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetFrontOfficeProductsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetFrontOfficeProductsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFrontOfficeSearchOptions">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetFrontOfficeSearchOptions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetFrontOfficeSearchOptionsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetFrontOfficeSearchOptionsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocations">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetLocations" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetLocationsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetLocationsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupValues">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetLookupValues" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetLookupValuesCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetLookupValuesCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetProduct" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetProductCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetProductCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReport">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetReport" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetReportCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetReportCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReports">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetReports" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetReportsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetReportsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceStrings">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetResourceStrings" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetResourceStringsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetResourceStringsCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap12:operation soapAction="http://ws.creditinfo.com/GetVersion" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFrontOffice">
+      <soap12:operation soapAction="http://ws.creditinfo.com/SearchFrontOffice" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:SearchFrontOfficeCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:SearchFrontOfficeCigWsHeader" part="CigWsHeader" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://www-test2.1cb.kz:80/FCBServices/Service"/>
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://www-test2.1cb.kz/WebServiceFCB/Service.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
