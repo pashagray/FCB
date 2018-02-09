@@ -1,5 +1,3 @@
-require "savon"
-
 module FCB
   class Info
     def initialize(wsdl: WSDL_PATH)

@@ -1,4 +1,6 @@
 require "dry-monads"
+require "savon"
+
 require "fcb/version"
 require "fcb/constants"
 require "fcb/info"
