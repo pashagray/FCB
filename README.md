@@ -22,7 +22,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Получение информации о статусе сервера ПКБ
+
+Проверка работоспособности сервера. При запросе должна вернуться информация о версии АПИ веб-сервисов ПКБ и дополнительные данные о сервере.
+
+```ruby
+  request = FCB::Info.new
+  result = request.call
+  result.value #=> "Version: 4.0.246; Blah-blah..."
+```
 
 ## Development
 
