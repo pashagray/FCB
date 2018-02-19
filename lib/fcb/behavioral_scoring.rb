@@ -1,19 +1,28 @@
 module FCB
   class BehavioralScoring
-    API_PATH = "http://www-test2.1cb.kz:80/ScoreService/ScoreService"
+    TEST_API_PATH = "http://www-test2.1cb.kz:80/ScoreService/ScoreService".freeze
+    PROD_API_PATH = "https://secure2.1cb.kz/ScoreService/ScoreService".freeze
     ERRORS = {
-      "-1000" => :authentication_error
+      "-1000" => :authentication_error,
+      "-1011" => :duplication_error,
+      "-1012" => :subject_not_found,
+      "-1013" => :subject_is_not_physical,
+      "-1014" => :contracts_not_found,
+      "-1015" => :not_enough_information,
+      "-1017" => :subject_consent_needed,
+      "-1018" => :active_contracts_not_found
     }
 
-    def initialize(culture: "ru-RU", user_name:, password:)
+    def initialize(env: :production, culture: "ru-RU", user_name:, password:)
       @culture = culture
       @user_name = user_name
       @password = password
       @parser = Nori.new
+      @env = env.to_sym
     end
 
     def call(iin:)
-      uri = URI(API_PATH)
+      uri = URI(@env == :production ? PROD_API_PATH : TEST_API_PATH)
       request = Net::HTTP::Post.new(uri)
       request.body = xml(iin)
       puts xml(iin)
