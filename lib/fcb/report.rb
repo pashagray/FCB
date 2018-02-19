@@ -1,9 +1,3 @@
-require "builder"
-require "net/http"
-require "nori"
-require "tempfile"
-require "base64"
-
 module FCB
   class Report
     API_PATH = "http://www-test2.1cb.kz:80/FCBServices/Service"
