@@ -1,5 +1,6 @@
 require "builder"
 require "net/http"
+require "net/https"
 require "nori"
 require "tempfile"
 require "base64"

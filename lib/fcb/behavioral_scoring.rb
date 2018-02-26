@@ -27,7 +27,12 @@ module FCB
       request.body = xml(iin)
       puts xml(iin)
       request.content_type = "text/xml; charset=utf-8"
-      response = Net::HTTP.new(uri.host, uri.port).start { |http| http.request request }
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true if uri.port == 443
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE if uri.port == 443
+      response = http.start do |_|
+        _.request(request)
+      end
       hash = @parser.parse(response.body)
       error = hash.dig("S:Envelope", "S:Body", "S:Fault")
       return M.Failure(:request_error) if error
