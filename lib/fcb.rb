@@ -9,6 +9,7 @@ require "dry-monads"
 require "fcb/version"
 require "fcb/report"
 require "fcb/behavioral_scoring"
+require "fcb/verification"
 
 M = Dry::Monads
 
