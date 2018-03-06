@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fcb (0.1.1)
+    fcb (0.2.0)
       builder
       dry-monads
       nokogiri

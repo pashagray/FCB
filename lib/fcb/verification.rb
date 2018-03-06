@@ -13,6 +13,14 @@ module FCB
       "-1018" => :active_contracts_not_found
     }
 
+    MARITAL_STATUSES = {
+      "single" => 1,
+      "married" => 2,
+      "divorced" => 3,
+      "widow" => 4,
+      "civil_marriage" => 5
+    }
+
     def initialize(env: :production, culture: "ru-RU", user_name:, password:)
       @culture = culture
       @user_name = user_name
@@ -22,10 +30,10 @@ module FCB
     end
 
     def call(args={})
-
       uri = URI(@env == :production ? PROD_API_PATH : TEST_API_PATH)
       request = Net::HTTP::Post.new(uri)
-      request.body = xml(args)
+      request.body = xml(transform_args(args))
+      puts xml(transform_args(args))
       request.content_type = "text/xml; charset=utf-8"
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true if uri.port == 443
@@ -42,6 +50,17 @@ module FCB
     end
 
     private
+
+    def transform_args(args)
+      args.reduce({}) do |acc, elem|
+        if elem[0] == :marital_status
+          acc[elem[0]] = MARITAL_STATUSES[elem[1]]
+        else
+          acc[elem[0]] = elem[1]
+        end
+        acc
+      end
+    end
 
     def xml(args)
       xml = Builder::XmlMarkup.new 
@@ -65,6 +84,7 @@ module FCB
               xml.ws :firstName, args[:first_name]
               xml.ws :fatherName, args[:middle_name]
               xml.ws :email, args[:email]
+              xml.ws :maritalstatus, args[:marital_status]
               xml.ws :Documents do
                 xml.ws :Typeid, 7
                 xml.ws :Number, args[:gov_id_number]
