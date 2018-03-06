@@ -84,7 +84,7 @@ module FCB
               xml.ws :firstName, args[:first_name]
               xml.ws :fatherName, args[:middle_name]
               xml.ws :email, args[:email]
-              xml.ws :maritalstatus, args[:marital_status]
+              xml.ws :maritalstatus, args[:marital_status] if args[:marital_status]
               xml.ws :Documents do
                 xml.ws :Typeid, 7
                 xml.ws :Number, args[:gov_id_number]
