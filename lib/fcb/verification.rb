@@ -30,6 +30,7 @@ module FCB
     end
 
     def call(args={})
+      args[:addresses] = [] unless args[:addresses]
       uri = URI(@env == :production ? PROD_API_PATH : TEST_API_PATH)
       request = Net::HTTP::Post.new(uri)
       request.body = xml(transform_args(args))
@@ -91,6 +92,14 @@ module FCB
                 xml.ws :IssueDate, args[:gov_id_issued_at]
                 xml.ws :ExpirationDate, args[:gov_id_expire_at]
               end
+              xml.ws :Addresses do
+                args[:addresses].map do |a|
+                  xml.ws :KatoId, a[:kato]
+                  xml.ws :StreetName, a[:street]
+                  xml.ws :StreetNumber, a[:building]
+                  xml.ws :AppartementNo, a[:apartment]
+                end
+              end if args[:addresses].any?
               xml.ws :Phones do
                 args[:phones].map { |phone| xml.ws :PhoneNumber, phone }
               end
