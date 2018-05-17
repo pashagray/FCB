@@ -10,6 +10,7 @@ require "fcb/version"
 require "fcb/report"
 require "fcb/behavioral_scoring"
 require "fcb/verification"
+require "fcb/credit_request"
 
 M = Dry::Monads
 
