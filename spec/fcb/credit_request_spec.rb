@@ -10,7 +10,9 @@ RSpec.describe FCB::CreditRequest do
         date: Date.today,
         dob: Date.new(1988, 1, 1),
         phones: ["77014929242"],
-        amount: 30000
+        amount: 30000,
+        location_id: 267,
+        purpose: 8
       )
       expect(result).to be_a(Dry::Monads::Result::Success)
     end

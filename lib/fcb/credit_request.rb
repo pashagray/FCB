@@ -76,9 +76,9 @@ module FCB
               xml.ws :lastName, args[:last_name]
               xml.ws :firstName, args[:first_name]
               xml.ws :fatherName, args[:middle_name]
-              xml.ws :creditLocation, 1
+              xml.ws :creditLocation, args[:location_id]
               xml.ws :creditKatoId, 0
-              xml.ws :creditPuspose, 1
+              xml.ws :creditPuspose, args[:purpose]
               xml.ws :sumApplication, args[:amount]
               xml.ws :currencyApplication, 398
               xml.ws :dateApplication, args[:date].strftime("%FT%T")
