@@ -26,6 +26,7 @@ module FCB
       uri = URI(@env == :production ? PROD_API_PATH : TEST_API_PATH)
       request = Net::HTTP::Post.new(uri)
       request.body = xml(transform_args(args))
+      puts xml(transform_args(args))
       request.content_type = "text/xml; charset=utf-8"
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true if uri.port == 443
