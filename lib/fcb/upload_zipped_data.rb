@@ -3,9 +3,9 @@
 module FCB
   class UploadZippedData
     TEST_API_PATH = 'http://www-test2.1cb.kz:80/DataPumpService/DataPumpService'.freeze
-    PROD_API_PATH = ''.freeze
+    PROD_API_PATH = 'https://secure.1cb.kz/DataPump/DataPumpService.asmx'.freeze
 
-    STRONG_ARGS = {
+    DEFAULT_ARGS = {
       funding_type: 2, # 2 – Займ
       credit_purpose_2: '09', # 09 - Прочие
       credit_object: '10', # 10 - Прочие
@@ -21,7 +21,7 @@ module FCB
       accounting_date: Date.today.strftime # Дата формирования отчета
     }.freeze
 
-    DEFAULT_ARGS = [
+    REQUIRED_ARGS = [
       :operation_type, :contract_number, :contract_phase, :contract_status, :start_date, :end_date,
       :total_amount, :instalment_amount, :instalment_count, :outstanding_instalment_count, :outstanding_amount,
       :overdue_instalment_count, :overdue_amount,
@@ -46,10 +46,10 @@ module FCB
     end
 
     def call(args: {})
-      missed_args = DEFAULT_ARGS - args.keys.map(&:to_sym)
+      missed_args = REQUIRED_ARGS - args.keys.map(&:to_sym)
       return M.Failure(missed_fields: missed_args) if missed_args.any?
 
-      @params = STRONG_ARGS.merge(args)
+      @params = DEFAULT_ARGS.merge(args)
       uri = URI(@env == :production ? PROD_API_PATH : TEST_API_PATH)
       request = Net::HTTP::Post.new(uri)
       request.body = make_request_xml
@@ -73,7 +73,7 @@ module FCB
       xml.instruct!(:xml, encoding: 'UTF-8')
       xml.soapenv(:Envelope,
                     'xmlns:soapenv' => 'http://schemas.xmlsoap.org/soap/envelope/',
-        'xmlns:ws' => 'https://ws.creditinfo.com') do
+                    'xmlns:ws' => 'https://ws.creditinfo.com') do
         xml.soapenv(:Header) do
           xml.ws(:CigWsHeader) do
             xml.ws :UserName, @user_name

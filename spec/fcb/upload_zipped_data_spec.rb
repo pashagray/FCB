@@ -2,7 +2,7 @@
 
 RSpec.describe FCB::UploadZippedData do
   describe '#call' do
-    test_default_args = {
+    test_required_args = {
       # Loan
       operation_type: 2, # При первоначальной загрузке контракта указывать ID значение 1, при обновлении – 2
       contract_number: 1007, # Номер договора
@@ -56,7 +56,7 @@ RSpec.describe FCB::UploadZippedData do
 
     it 'returns succesfully received message' do
       request = FCB::UploadZippedData.new(env: :test, user_name: ENV['FCB_TEST_USERNAME'], password: ENV['FCB_TEST_PASSWORD'])
-      result = request.call(args: test_default_args)
+      result = request.call(args: test_required_args)
       # puts result.value['CigResult']['Result']['Batch']
       expect(result).to be_a(Dry::Monads::Result::Success)
       expect(result.value['CigResult']['Result']['Batch']['@StatusId']).to eq('519')

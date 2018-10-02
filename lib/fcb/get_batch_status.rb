@@ -3,7 +3,7 @@
 module FCB
   class GetBatchStatus
     TEST_API_PATH = 'http://www-test2.1cb.kz:80/DataPumpService/DataPumpService'.freeze
-    PROD_API_PATH = ''.freeze
+    PROD_API_PATH = 'https://secure.1cb.kz/DataPump/DataPumpService'.freeze
 
     def initialize(env: :production, culture: 'ru-RU', user_name:, password:)
       @env = env.to_sym
