@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fcb (0.5.1)
+    fcb (0.5.2)
       builder
       dry-monads (~> 0.4.0)
       nokogiri
@@ -22,7 +22,7 @@ GEM
       dry-core (~> 0.3, >= 0.3.3)
       dry-equalizer
     mini_portile2 (2.3.0)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     nori (2.6.0)
     rake (10.5.0)
