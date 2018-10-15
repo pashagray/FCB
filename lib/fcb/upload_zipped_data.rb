@@ -5,23 +5,11 @@ module FCB
     TEST_API_PATH = 'http://www-test2.1cb.kz:80/DataPumpService/DataPumpService'.freeze
     PROD_API_PATH = 'https://secure.1cb.kz/DataPump/DataPumpService.asmx'.freeze
 
-    DEFAULT_ARGS = {
-      funding_type: 2, # 2 – Займ
-      credit_purpose_2: '09', # 09 - Прочие
-      credit_object: '10', # 10 - Прочие
-      real_payment_date: nil, # При фазах 5 - Погашен, 6 - Погашен досрочно, 8 - Смена  кредитора заполнение данного поля обязательно.  По действующим контрактам поле не заполняется. Дата фактического погашения не может быть больше текущей даты.
-      classification: 1, # 1 - Стандартный
-      collateral: 1, # 1 – Бланковые, Указывается для беззалоговых займов
-      collateral_value: 0, # Если займ беззалоговый, в стоимости обеспечения необходимо передавать значение "0"
-      collateral_currency: 'KZT', # Код валюты
-      collateral_type: 3, # 3 – Внутренняя оценка
-      instalment_payment_method_id: 6, # 6 – Другие
-      instalment_payment_period_id: 9, # 9 – В день истечения срока кредитного договора
-      subject_role_id: 1, # 1 – Заемщик
-      accounting_date: Date.today.strftime # Дата формирования отчета
-    }.freeze
-
     REQUIRED_ARGS = [
+      :funding_type, :credit_purpose_2, :credit_object, :real_payment_date, :classification, :collateral,
+      :collateral_value, :collateral_currency, :collateral_type, :instalment_payment_method_id,
+      :instalment_payment_period_id, :subject_role_id, :accounting_date,
+
       :operation_type, :contract_number, :contract_phase, :contract_status, :start_date, :end_date,
       :total_amount, :instalment_amount, :instalment_count, :outstanding_instalment_count, :outstanding_amount,
       :overdue_instalment_count, :overdue_amount,
@@ -49,7 +37,7 @@ module FCB
       missed_args = REQUIRED_ARGS - args.keys.map(&:to_sym)
       return M.Failure(missed_fields: missed_args) if missed_args.any?
 
-      @params = DEFAULT_ARGS.merge(args)
+      @params = args
       uri = URI(@env == :production ? PROD_API_PATH : TEST_API_PATH)
       request = Net::HTTP::Post.new(uri)
       request.body = make_request_xml

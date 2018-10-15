@@ -3,6 +3,21 @@
 RSpec.describe FCB::UploadZippedData do
   describe '#call' do
     test_required_args = {
+      # default
+      funding_type: 2, # 2 – Займ
+      credit_purpose_2: '09', # 09 - Прочие
+      credit_object: '10', # 10 - Прочие
+      real_payment_date: nil, # При фазах 5 - Погашен, 6 - Погашен досрочно, 8 - Смена  кредитора заполнение данного поля обязательно.  По действующим контрактам поле не заполняется. Дата фактического погашения не может быть больше текущей даты.
+      classification: 1, # 1 - Стандартный
+      collateral: 1, # 1 – Бланковые, Указывается для беззалоговых займов
+      collateral_value: 0, # Если займ беззалоговый, в стоимости обеспечения необходимо передавать значение "0"
+      collateral_currency: 'KZT', # Код валюты
+      collateral_type: 3, # 3 – Внутренняя оценка
+      instalment_payment_method_id: 6, # 6 – Другие
+      instalment_payment_period_id: 9, # 9 – В день истечения срока кредитного договора
+      subject_role_id: 1, # 1 – Заемщик
+      accounting_date: Date.today.strftime, # Дата формирования отчета
+
       # Loan
       operation_type: 2, # При первоначальной загрузке контракта указывать ID значение 1, при обновлении – 2
       contract_number: 1007, # Номер договора
@@ -51,7 +66,7 @@ RSpec.describe FCB::UploadZippedData do
       request = FCB::UploadZippedData.new(env: :test, user_name: ENV['FCB_TEST_USERNAME'], password: ENV['FCB_TEST_PASSWORD'])
       result = request.call(args: {})
       expect(result).to be_a(Dry::Monads::Result::Failure)
-      expect(result.value).to eq(missed_fields: [:operation_type, :contract_number, :contract_phase, :contract_status, :start_date, :end_date, :total_amount, :instalment_amount, :instalment_count, :outstanding_instalment_count, :outstanding_amount, :overdue_instalment_count, :overdue_amount, :first_name, :surname, :fathers_name, :gender, :subject_classification, :residency, :date_of_birth, :citizenship, :subject_iin, :subject_iin_system_registration_date, :subject_identity_document_number, :subject_identity_document_issued_on, :subject_identity_document_expire_on, :subject_identity_document_system_registration_date, :residential_address_locality, :residential_address_full, :registration_address_locality, :registration_address_full, :communication_type, :communication])
+      expect(result.value).to eq(missed_fields: [:funding_type, :credit_purpose_2, :credit_object, :real_payment_date, :classification, :collateral, :collateral_value, :collateral_currency, :collateral_type, :instalment_payment_method_id, :instalment_payment_period_id, :subject_role_id, :accounting_date, :operation_type, :contract_number, :contract_phase, :contract_status, :start_date, :end_date, :total_amount, :instalment_amount, :instalment_count, :outstanding_instalment_count, :outstanding_amount, :overdue_instalment_count, :overdue_amount, :first_name, :surname, :fathers_name, :gender, :subject_classification, :residency, :date_of_birth, :citizenship, :subject_iin, :subject_iin_system_registration_date, :subject_identity_document_number, :subject_identity_document_issued_on, :subject_identity_document_expire_on, :subject_identity_document_system_registration_date, :residential_address_locality, :residential_address_full, :registration_address_locality, :registration_address_full, :communication_type, :communication])
     end
 
     it 'returns succesfully received message' do
