@@ -42,7 +42,12 @@ module FCB
       request = Net::HTTP::Post.new(uri)
       request.body = make_request_xml
       request.content_type = 'text/xml; charset=utf-8'
-      response = Net::HTTP.new(uri.host, uri.port).start { |http| http.request request }
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true if uri.port == 443
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE if uri.port == 443
+      response = http.start do |_|
+        _.request(request)
+      end
       parser = Nori.new
       hash = parser.parse(response.body)
       error = hash.dig('S:Envelope', 'S:Body', 'S:Fault')
