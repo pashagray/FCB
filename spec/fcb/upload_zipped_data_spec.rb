@@ -72,7 +72,7 @@ RSpec.describe FCB::UploadZippedData do
     it 'returns succesfully received message' do
       request = FCB::UploadZippedData.new(env: :test, user_name: ENV['FCB_TEST_USERNAME'], password: ENV['FCB_TEST_PASSWORD'])
       result = request.call(args: test_required_args)
-      # puts result.value['CigResult']['Result']['Batch']
+      puts result.value['CigResult']['Result']['Batch']
       expect(result).to be_a(Dry::Monads::Result::Success)
       expect(result.value['CigResult']['Result']['Batch']['@StatusId']).to eq('519')
     end

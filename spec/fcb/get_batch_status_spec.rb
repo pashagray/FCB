@@ -14,7 +14,7 @@ RSpec.describe FCB::GetBatchStatus do
       request = FCB::GetBatchStatus.new(env: :test,
                                         user_name: ENV['FCB_TEST_USERNAME'],
                                         password: ENV['FCB_TEST_PASSWORD'])
-      result = request.call(105_300)
+      result = request.call(113177)
       puts result
       expect(result).to be_a(Dry::Monads::Result::Success)
     end

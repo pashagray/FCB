@@ -1,6 +1,5 @@
 RSpec.describe FCB::CreditRequest do
   describe "#call" do
-
     it "returns credit request info" do
       request = FCB::CreditRequest.new(env: :test, user_name: ENV["FCB_TEST_USERNAME"], password: ENV["FCB_TEST_PASSWORD"])
       result = request.call(

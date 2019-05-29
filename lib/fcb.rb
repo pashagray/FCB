@@ -13,6 +13,7 @@ require "fcb/verification"
 require "fcb/credit_request"
 require "fcb/upload_zipped_data"
 require "fcb/get_batch_status"
+require "fcb/get_report"
 
 M = Dry::Monads
 
