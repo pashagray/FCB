@@ -23,6 +23,23 @@ module FCB
       "600054" => "24"
     }
 
+    ERRORS = {
+      "1101" => :something_went_wrong,
+      "1102" => :subject_not_found,
+      "1103" => :culture_error,
+      "1104" => :login_error,
+      "1105" => :report_code_error,
+      "1106" => :rights_error,
+      "1107" => :document_not_found,
+      "1108" => :report_not_found,
+      "1109" => :subject_type_for_report_error,
+      "1110" => :pass_ip_etc_error,
+      "1111" => :pkb_inside_error,
+      "1112" => :many_subject_found_error,
+      "1115" => :setted_documents_error,
+      "1116" => :search_code_error
+    }
+
     def initialize(env: :production, culture: "ru-RU", user_name:, password:)
       @culture = culture
       @user_name = user_name
@@ -39,8 +56,10 @@ module FCB
       response = Net::HTTP.new(uri.host, uri.port).start { |http| http.request request }
       parser = Nori.new
       hash = parser.parse(response.body)
-      error = hash.dig("S:Envelope", "S:Body", "S:Fault")
-      return M.Failure(:request_error) if error
+      request_error = hash.dig("S:Envelope", "S:Body", "S:Fault")
+      return M.Failure(:request_error) if request_error
+      response_error = hash.dig("S:Envelope", "S:Body", "GetReportResponse", "GetReportResult", "CigResultError", "Errmessage")
+      return M.Failure(ERRORS[response_error.attributes["code"]]) if response_error
       data = hash.dig("S:Envelope", "S:Body", "GetReportResponse", "GetReportResult", "CigResult", "Result", "Root")
       return M.Failure(:no_data) unless data
       M.Success(data)
