@@ -2,8 +2,8 @@
 
 module FCB
   class GetReport
-    TEST_API_PATH = "http://www-test2.1cb.kz:80/FCBServices/Service"
-    PROD_API_PATH = "https://secure2.1cb.kz/FCBServices/Service".freeze
+    TEST_API_PATH = "http://www-test2.1cb.kz:80/FCBServices/Service".freeze
+    PROD_API_PATH = "https://secure.1cb.kz/FCBServices/Service".freeze
     IIN_DOC_CODE = "14"
 
     # reportId => reportImportCode
@@ -53,7 +53,12 @@ module FCB
       request = Net::HTTP::Post.new(uri)
       request.body = xml(iin: iin, report_import_code: report_import_code)
       request.content_type = "text/xml; charset=utf-8"
-      response = Net::HTTP.new(uri.host, uri.port).start { |http| http.request request }
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true if uri.port == 443
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE if uri.port == 443
+      response = http.start do |_|
+        _.request(request)
+      end
       parser = Nori.new
       hash = parser.parse(response.body)
       request_error = hash.dig("S:Envelope", "S:Body", "S:Fault")
@@ -75,7 +80,7 @@ module FCB
         "xmlns:ws" => "http://ws.creditinfo.com/"
       }) do
         xml.x :Header do
-          xml.ws(:CigWsHeader, {  }) do
+          xml.ws(:CigWsHeader) do
             xml.ws :Culture, @culture
             xml.ws :UserName, @user_name
             xml.ws :Password, @password
